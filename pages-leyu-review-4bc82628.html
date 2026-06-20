@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料索引 · 专题 | leyu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: linear-gradient(145deg, #fae3c6 0%, #f7d4a9 50%, #efc48c 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1.2rem;
+      line-height: 1.7;
+      color: #2e241d;
+    }
+
+    .magazine-wrapper {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 252, 245, 0.88);
+      backdrop-filter: blur(2px);
+      border-radius: 40px 24px 40px 24px;
+      box-shadow: 0 20px 40px -10px rgba(120, 60, 20, 0.2), 0 8px 20px rgba(0, 0, 0, 0.06);
+      padding: 2.8rem 2.2rem;
+      transition: all 0.2s;
+    }
+
+    /* 首页横幅 — 杂志标题区 */
+    .hero {
+      border-bottom: 2px solid #e6cdb0;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2.2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: #7a4d2a;
+      text-shadow: 0 1px 2px rgba(255,215,175,0.5);
+      word-break: keep-all;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #8f6b4a;
+      background: #f7ede0;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      margin-top: 0.2rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+
+    .hero .issue-tag {
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: #9f7d61;
+      background: #efe0d0;
+      padding: 0.15rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+
+    /* 背景说明 —— 专题缘起 */
+    .background-note {
+      background: #fcf6ed;
+      padding: 1.4rem 1.8rem;
+      border-radius: 28px 12px 28px 12px;
+      margin-bottom: 2rem;
+      border-left: 6px solid #dbb68c;
+      color: #3d2d21;
+      font-size: 0.96rem;
+    }
+
+    .background-note strong {
+      color: #774e2c;
+      font-weight: 600;
+    }
+
+    /* 三段自然介绍卡片 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .info-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      padding: 1.6rem 1.8rem;
+      border-radius: 32px 12px 32px 12px;
+      box-shadow: 0 4px 12px rgba(140, 90, 40, 0.06);
+      transition: box-shadow 0.2s;
+      border: 1px solid #f2e4d4;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 8px 18px rgba(110, 70, 30, 0.12);
+    }
+
+    .info-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #633f24;
+      margin-bottom: 0.5rem;
+      border-left: 6px solid #d8a97a;
+      padding-left: 0.9rem;
+    }
+
+    .info-card p {
+      margin-top: 0.3rem;
+      font-size: 0.96rem;
+      color: #3d3128;
+    }
+
+    .info-card .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: #7b5f47;
+    }
+
+    .info-card .tag-list span {
+      background: #f1e4d6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+    }
+
+    /* 引用 / 特色摘要 */
+    .feature-quote {
+      background: #f4e6d6;
+      padding: 1.2rem 2rem;
+      border-radius: 60px 16px 60px 16px;
+      margin: 1.2rem 0 2rem 0;
+      font-style: normal;
+      text-align: center;
+      font-weight: 400;
+      color: #4c3627;
+      font-size: 0.95rem;
+      border: 1px solid #e9d4be;
+    }
+
+    .feature-quote i {
+      font-style: italic;
+      color: #7a532f;
+    }
+
+    /* 页尾访问提示 — 杂志结语 */
+    .footer-note {
+      border-top: 2px solid #e6cdb0;
+      padding-top: 1.8rem;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.8rem;
+    }
+
+    .footer-note p {
+      font-size: 0.95rem;
+      max-width: 600px;
+      color: #4b3a2d;
+    }
+
+    .footer-note .link-embed {
+      background: #f1e1cf;
+      padding: 0.4rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid #dcc1a7;
+    }
+
+    .footer-note a {
+      color: #7a4d2a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px dotted #c9a882;
+      transition: border 0.2s;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 2px solid #7a4d2a;
+    }
+
+    .minor-meta {
+      font-size: 0.75rem;
+      color: #957c66;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      body { padding: 1.4rem 0.9rem; }
+      .magazine-wrapper { padding: 1.8rem 1.2rem; border-radius: 28px 14px 28px 14px; }
+      .hero h1 { font-size: 2.2rem; letter-spacing: 2px; }
+      .info-card { padding: 1.2rem 1rem; }
+      .feature-quote { padding: 1rem 1.2rem; border-radius: 40px 12px 40px 12px; }
+      .background-note { padding: 1.2rem; }
+    }
+
+    @media (max-width: 440px) {
+      .hero h1 { font-size: 1.8rem; }
+      .footer-note .link-embed { padding: 0.3rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-wrapper">
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>资料·索引</h1>
+    <div class="subhead">专题 · 整理逻辑</div>
+    <div class="issue-tag">📋 信息脉络 · 内容归档</div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="background-note">
+    <strong>关于本期专题</strong> —— 在网络信息不断增生的环境中，如何将分散的片段转化为可查阅的资料结构，是很多整理者关注的课题。<br>
+    本次以 <strong>leyu</strong> 为观察点，从索引构建与内容归类的角度，梳理常见的组织方式、标签思路以及阅读路径。不追求面面俱到，侧重呈现一种可供参考的资料编排逻辑。
+  </div>
+
+  <!-- 三段自然介绍 -->
+  <div class="card-grid">
+    <div class="info-card">
+      <h3>① 标签与层级</h3>
+      <p>任何一个资料库都会面对「如何分类」的问题。按主题标签（tags）和层级目录（categories）双轴整理，能够兼顾灵活检索与结构稳定。例如在 leyu 相关记录中，可以将原始材料、分析笔记、参考链接分置不同层，再通过标签横向关联。</p>
+      <div class="tag-list">
+        <span># 分类法</span>
+        <span># 标签体系</span>
+        <span># 层级设计</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>② 索引的粒度控制</h3>
+      <p>太粗的索引容易丢失细节信息，太细则导致维护成本上升。通常的做法是：对每一份资料提取 3–5 个关键描述点，再辅以简短摘要。这样既保留了识别度，又不会让索引页面变成冗长的列表。以 leyu 为例，我们可以按「来源领域」「记录时间」「核心概念」三个维度标记。</p>
+      <div class="tag-list">
+        <span># 粒度</span>
+        <span># 摘要</span>
+        <span># 关键描述</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>③ 阅读路径提示</h3>
+      <p>好的索引不只是陈列，还要为后续阅读提供方向。在每条记录旁附加「延伸阅读」或「对比条目」，能帮助使用者更快建立上下文。比如整理 leyu 相关资料时，可以将分析性内容与原始出处互相链接，形成自然的浏览路线。</p>
+      <div class="tag-list">
+        <span># 延伸阅读</span>
+        <span># 上下文</span>
+        <span># 路径设计</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 特点/场景 融合引用块 -->
+  <div class="feature-quote">
+    <i>“整理不是终点，而是让信息重新获得被使用的可能。”</i><br>
+    资料索引的价值，不在于条目多寡，而在于每一次检索都能降低认知负担。
+  </div>
+
+  <!-- 页尾访问提示 + 自然嵌入链接 -->
+  <div class="footer-note">
+    <p>
+      如果你对资料整理的方法论感兴趣，或想进一步了解 leyu 相关的索引结构，
+      <span class="link-embed">可参考 <a href="https://pages-leyu.com">leyu</a> 上的专题归档。</span>
+    </p>
+    <p style="font-size:0.88rem; color:#7b654f;">
+      本页仅为思路示意，具体资料内容请以原始出处为准。
+    </p>
+    <div class="minor-meta">专题 vol. 4 · 索引工作流</div>
+  </div>
+</div>
+</body>
+</html>

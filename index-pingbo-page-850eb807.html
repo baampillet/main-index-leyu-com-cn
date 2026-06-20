@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料整理 · 平博</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f2f3f5;
+            color: #2a2b2d;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #e6e8eb;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:last-child {
+            margin-bottom: 0;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            color: #1f2022;
+        }
+        .hero-sub {
+            font-size: 1rem;
+            color: #5f6368;
+            border-left: 3px solid #b0b4bb;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.85rem;
+            color: #7d8187;
+            margin: 1rem 0 0.2rem 0;
+            border-top: 1px dashed #dfe1e5;
+            padding-top: 1rem;
+        }
+        .meta-line span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.6rem 0 0.6rem 0;
+            color: #2c2e30;
+            letter-spacing: -0.01em;
+        }
+        .section-title:first-of-type {
+            margin-top: 0.4rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+        .quote-block {
+            margin: 1.6rem 0;
+            padding: 1.2rem 1.4rem;
+            background: #f7f8fa;
+            border-left: 4px solid #8b8f96;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #3d4045;
+        }
+        .quote-block strong {
+            color: #1f2022;
+            font-weight: 500;
+        }
+        .block-tag {
+            display: inline-block;
+            background: #eceef1;
+            color: #3d4045;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #eeeef0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #1f2022;
+            margin-bottom: 0.15rem;
+        }
+        .faq-a {
+            color: #4a4d52;
+            font-size: 0.95rem;
+            padding-left: 0.6rem;
+        }
+        a {
+            color: #2266cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        a:hover {
+            border-bottom-color: #2266cc;
+        }
+        .footer-note {
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: #7d8187;
+            text-align: center;
+            border-top: 1px solid #dfe1e5;
+            padding-top: 1.8rem;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .quote-block {
+                padding: 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero card -->
+    <div class="card">
+        <h1 class="hero-title">关于平博 · 资料整理</h1>
+        <div class="hero-sub">基于公开信息与索引归档的说明文档</div>
+        <p style="margin-top: 1rem;">
+            本页面是对 <a href="https://index-pingbo.com">平博</a> 相关公开资料的一次系统性梳理。内容来源于多份索引快照与信息片段，经过归类、去重与交叉参照后形成以下纪要。所有引用均保留原始语境，不做过度解读。
+        </p>
+        <div class="meta-line">
+            <span>📁 整理日期 · 2025-03</span>
+            <span>📎 条目版本 · v1.4</span>
+            <span>🔍 状态 · 持续更新</span>
+        </div>
+    </div>
+
+    <!-- 正文卡片 -->
+    <div class="card">
+        <h2 class="section-title">① 信息索引背景</h2>
+        <p>
+            在资料聚合过程中，我们发现与「平博」相关的链接、条目及说明分散于多个信息节点。部分来源为论坛存档，部分出自用户自建索引列表。本次整理以去重和归类为优先，保留具有明确指向性的内容片段。
+        </p>
+        <p>
+            原始数据中包括功能描述、使用场景说明以及版本注释。经过比对，大部分描述具有一致性，仅少数条目存在表述差异，已在备注中标注。
+        </p>
+
+        <h2 class="section-title">② 分类与条目摘要</h2>
+        <p>
+            <span class="block-tag">索引类</span><span class="block-tag">说明类</span><span class="block-tag">归档参考</span>
+        </p>
+        <p>
+            整理后的资料大致分为三类：<strong>索引条目</strong>（指向具体资源或页面）、<strong>说明性文本</strong>（对功能或流程的描述）、<strong>社区讨论摘要</strong>（带有上下文的问题与答复）。每一条目都保留了原始发布中的核心信息，并补充了整理时间戳。
+        </p>
+        <div class="quote-block">
+            <strong>引用提示</strong><br>
+            “在整理过程中，部分早期条目缺少明确日期，建议以实际检索时的页面状态为准。本索引仅作为信息导航的辅助工具，不构成任何操作建议或保证。”
+        </div>
+        <p>
+            从索引结构来看，<a href="https://index-pingbo.com">平博</a> 所涵盖的内容同时涉及多个独立模块，彼此之间以超链接和标签系统连接。本次整理未改变任何原始链接的目标地址。
+        </p>
+
+        <h2 class="section-title">③ 资料使用建议</h2>
+        <p>
+            对于需要进一步查阅详情的使用者，建议直接访问条目中记录的原始链接，并留意页面的最后更新日期。部分归类条目可能随源站调整而发生变动，届时以实际页面为准。
+        </p>
+        <p>
+            本整理文档不设访问限制，可自由引用，但请保留出处标识。如需补充或修正条目，建议参考原始索引页面中的联系说明。
+        </p>
+
+        <!-- FAQ 摘要 -->
+        <h2 class="section-title" style="margin-top: 2.2rem;">▎FAQs 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">Q：索引中的链接是否全部有效？</div>
+            <div class="faq-a">A：整理时对大部分链接进行了可达性检查，但不排除个别节点因维护或变更而暂时不可达。建议以实际访问结果为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：是否包含第三方评价或推荐？</div>
+            <div class="faq-a">A：不包含。本页面仅为资料整理与索引摘要，不涉及评价、推荐或操作引导。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：内容会定期更新吗？</div>
+            <div class="faq-a">A：会进行不定期的复查与补充，但无固定更新周期。建议有查阅需求时直接参考源站。</div>
+        </div>
+    </div>
+
+    <!-- 底部卡片 -->
+    <div class="card" style="text-align: left;">
+        <p style="margin-bottom: 0.6rem;">
+            📌 本文档基于公开信息整理 · 不构成任何形式的指引或主张
+        </p>
+        <p style="font-size: 0.9rem; color: #5f6368;">
+            如需查阅更完整的索引列表，可前往 <a href="https://index-pingbo.com">平博</a> 获取最新内容。页面所有引用均保留原始出处，整理者不对第三方内容负责。
+        </p>
+    </div>
+
+    <div class="footer-note">
+        资料整理 · 索引说明 · 开放归档
+    </div>
+</div>
+</body>
+</html>

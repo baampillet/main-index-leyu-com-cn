@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 熊猫体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f3f4f6;
+            color: #2c2f33;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 开场区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eaeef2;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1e2329;
+            margin-bottom: 1rem;
+            border-left: 4px solid #608d6b;
+            padding-left: 1.2rem;
+        }
+
+        .hero .opening {
+            font-size: 1.1rem;
+            color: #3b424b;
+            max-width: 620px;
+        }
+
+        .hero .opening strong {
+            color: #1d2b2f;
+            font-weight: 500;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            border: 1px solid #dfe5eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.8rem;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1f2a30;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h2::before {
+            content: "▹";
+            color: #6c8b72;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            color: #353b42;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.3rem 0;
+        }
+
+        .feature-marker {
+            display: inline-flex;
+            background: #e5ece6;
+            color: #2b4a33;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 30px;
+            padding: 0.1rem 0.8rem;
+            min-width: 2.2rem;
+            justify-content: center;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 0.98rem;
+            color: #2f373f;
+        }
+
+        .feature-text strong {
+            font-weight: 500;
+            color: #1a282e;
+        }
+
+        /* 场景+提示区 */
+        .split-row {
+            display: flex;
+            gap: 1.8rem;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .split-row .card {
+            flex: 1;
+            min-width: 240px;
+            margin-bottom: 0;
+        }
+
+        .scene-card h2::before {
+            content: "☕";
+            font-size: 1.2rem;
+            color: transparent;
+            background: none;
+        }
+
+        .scene-card h2 {
+            gap: 0.3rem;
+        }
+
+        .tip-card {
+            background: #f9fafb;
+        }
+
+        .tip-card h2::before {
+            content: "·";
+            font-size: 1.8rem;
+            color: #608d6b;
+            line-height: 1;
+        }
+
+        .tip-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tip-list li {
+            padding: 0.6rem 0 0.6rem 1.6rem;
+            position: relative;
+            border-bottom: 1px solid #ebf0f3;
+            font-size: 0.95rem;
+        }
+
+        .tip-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tip-list li::before {
+            content: "•";
+            color: #6c8b72;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin-top: 0.3rem;
+        }
+
+        .faq-mini details {
+            margin: 0.7rem 0;
+            border-bottom: 1px solid #e6ebf0;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1f2b33;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini summary::marker {
+            color: #608d6b;
+        }
+
+        .faq-mini .answer {
+            padding: 0.5rem 0 0.2rem 1.2rem;
+            color: #3b444d;
+            font-size: 0.93rem;
+        }
+
+        .faq-mini .answer a {
+            color: #1d4a3e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b7cdbe;
+            font-weight: 450;
+        }
+
+        .faq-mini .answer a:hover {
+            color: #0b2f27;
+            text-decoration-color: #6a9b7a;
+        }
+
+        /* 结尾温和 */
+        .footer-note {
+            text-align: left;
+            padding: 1.2rem 2rem 1.5rem;
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #e2e9ee;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.01);
+            color: #3c454e;
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+        }
+
+        .footer-note a {
+            color: #1d4a3e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b7cdbe;
+            font-weight: 450;
+            transition: color 0.15s;
+        }
+
+        .footer-note a:hover {
+            color: #0f332c;
+            text-decoration-color: #6a9b7a;
+        }
+
+        .footer-note .small-meta {
+            display: block;
+            margin-top: 0.8rem;
+            color: #6d7883;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+                padding-left: 0.9rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+
+            .split-row {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .footer-note {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 开场 · 简明指引 -->
+    <div class="hero">
+        <h1>从一条路径开始</h1>
+        <div class="opening">
+            <p>无论是初次接触运动数据平台，还是希望找到稳定的信息入口，<strong>熊猫体育</strong> 一直以清晰的结构和克制的设计被一部分用户记住。它的界面并不复杂，但初次访问时，一些细节仍值得提前了解。</p>
+            <p style="margin-top:0.7rem;">下面这份简短的指南，将帮你快速理解它的布局逻辑、核心模块，以及访问时需要注意的小事。</p>
+        </div>
+    </div>
+
+    <!-- 承接段落 · 平台特点卡片 -->
+    <div class="card">
+        <h2>特点速览 · 简明档案</h2>
+        <p>熊猫体育的页面组织遵循一种“信息分层”的思路——常用的导航与次级分类始终保持在固定区域，减少寻找时间。以下四个特征在日常使用中最为突出：</p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="feature-marker">01</span>
+                <span class="feature-text"><strong>分类入口</strong> —— 赛事、数据、资讯分别独立，每个模块都有自己的一级入口，避免层层跳转。</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-marker">02</span>
+                <span class="feature-text"><strong>信息密度</strong> —— 列表页采用中等密度排版，标题与摘要之间留出呼吸感，适合快速扫读。</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-marker">03</span>
+                <span class="feature-text"><strong>状态提示</strong> —— 关键操作（如加载、切换视图）有明确的文本反馈，不会让用户陷入无反馈等待。</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-marker">04</span>
+                <span class="feature-text"><strong>链接一致性</strong> —— 内部链接均以新标签或明确跳转方式打开，减少误触返回的困惑。</span>
+            </div>
+        </div>
+        <p style="margin-top:1.2rem; font-size:0.95rem; color:#4b555f;">这些设计并非新颖的噱头，但恰好构成了稳定、可预期的浏览节奏。</p>
+    </div>
+
+    <!-- 场景 + 访问提醒 双栏 -->
+    <div class="split-row">
+        <div class="card scene-card">
+            <h2>实际场景</h2>
+            <p>假设你想快速浏览近期的赛事摘要：进入首页后，顶部导航栏左侧的“赛事”分类即可直达。页面会按时间倒序排列，每个条目附带简短状态标签（进行中、已结束、即将开始）。</p>
+            <p>如果你更关注某个特定联赛或队伍，可以在筛选栏里选择地区或级别，列表将即时刷新。整个过程不需要登录或注册——这是熊猫体育对公开信息的一贯处理方式。</p>
+            <p style="margin-top:0.5rem; font-size:0.92rem; color:#58626d;">提示：部分深度数据页面可能需要轻量交互（如点击展开），但均无强制要求。</p>
+        </div>
+
+        <div class="card tip-card">
+            <h2>访问提醒</h2>
+            <ul class="tip-list">
+                <li>建议使用最新版浏览器访问，部分旧版本可能无法完整加载字体图标。</li>
+                <li>移动端页面采用自适应布局，横屏或平板模式下卡片间距会更舒展。</li>
+                <li>如果遇到页面加载缓慢，请先检查本地网络环境 —— 平台自身响应时间通常在正常范围内。</li>
+                <li>所有跳转链接均为站内路径，外部资源极少；若遇到非预期跳转，建议核对网址是否为官方域名。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要卡片 -->
+    <div class="card" style="padding-bottom:1.8rem;">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-mini">
+            <details>
+                <summary>熊猫体育是否需要注册才能浏览内容？</summary>
+                <div class="answer">绝大部分内容（赛事列表、资讯、基础数据）对访客完全开放，无需注册或登录。部分个性化功能（如收藏、历史记录）可能需要轻量账户，但不会强制要求。</div>
+            </details>
+            <details>
+                <summary>页面中的链接会跳转到第三方吗？</summary>
+                <div class="answer">主要链接均保持在 <a href="https://index-web-pandasports.com">熊猫体育</a> 内部生态中，极少数情况下会引用外部公开数据源，并会明确标注来源。你可以放心浏览，链接行为透明可预期。</div>
+            </details>
+            <details>
+                <summary>移动端与电脑端的体验差异大吗？</summary>
+                <div class="answer">核心功能一致，仅布局做了响应式适配。移动端导航合并为汉堡菜单，卡片宽度自动调整。建议在平板或桌面分辨率下体验完整的多栏视图。</div>
+            </details>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="footer-note">
+        <p>一个平台的价值，往往不在于它有多少功能，而在于你能否在需要时准确找到它们。<a href="https://index-web-pandasports.com">熊猫体育</a> 并不追求面面俱到的“大而全”，而是更倾向于把已有的模块打磨得足够清晰。希望这篇简短的指南，能让你在初次接触时少一些摸索，多一分从容。</p>
+        <span class="small-meta">如果你已经熟悉基础布局，直接打开首页开始探索即可；若仍有疑问，页面内的帮助入口也提供了简洁的说明文档。</span>
+    </div>
+</div>
+</body>
+</html>
